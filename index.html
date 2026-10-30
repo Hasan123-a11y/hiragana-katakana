@@ -7,17 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
---bg:#fdf3f6;--g1:#ffd6e3;--g2:#cfe0ff;--g3:#ffe9c7;--surface:rgba(255,255,255,.85);--ink:#16243b;--mute:#5d6b82;--line:#d9d2e0;--ind:#1f3a6e;--pink:#d6336c;--ok:#1f8a5b;--bad:#c92a2a;--dot:rgba(31,58,110,.09);color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1424;--g1:#3a1d3e;--g2:#14284f;--g3:#2f2416;--surface:rgba(24,34,58,.85);--ink:#e8edf7;--mute:#9aa8c2;--line:#33415f;--ind:#8fb0ff;--pink:#ff7ba5;--ok:#4cc58d;--bad:#ff7b7b;--dot:rgba(255,255,255,.07);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0e1424;--g1:#3a1d3e;--g2:#14284f;--g3:#2f2416;--surface:rgba(24,34,58,.85);--ink:#e8edf7;--mute:#9aa8c2;--line:#33415f;--ind:#8fb0ff;--pink:#ff7ba5;--ok:#4cc58d;--bad:#ff7b7b;--dot:rgba(255,255,255,.07);color-scheme:dark}
+--bg:#ffffff;--g1:#f1f9f3;--g2:#ffffff;--g3:#f7fbf8;--surface:rgba(255,255,255,.95);--ink:#12281b;--mute:#587064;--line:#dbe8df;--ind:#166534;--pink:#16a34a;--ok:#15803d;--bad:#c92a2a;--dot:rgba(22,101,52,.06);color-scheme:light}
+@media (prefers-color-scheme:none){:root:not([data-theme="light"]){--bg:#0b1a12;--g1:#12381f;--g2:#0f2e2b;--g3:#1d2e12;--surface:rgba(17,38,27,.88);--ink:#e6f4ea;--mute:#9bb8a6;--line:#25503a;--ind:#6ee7a0;--pink:#4ade80;--ok:#4ade80;--bad:#ff7b7b;--dot:rgba(255,255,255,.06);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1a12;--g1:#12381f;--g2:#0f2e2b;--g3:#1d2e12;--surface:rgba(17,38,27,.88);--ink:#e6f4ea;--mute:#9bb8a6;--line:#25503a;--ind:#6ee7a0;--pink:#4ade80;--ok:#4ade80;--bad:#ff7b7b;--dot:rgba(255,255,255,.06);color-scheme:dark}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;color:var(--ink);font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5;min-height:100vh;
 background:radial-gradient(circle at 12% 8%,var(--g1),transparent 42%),radial-gradient(circle at 90% 25%,var(--g2),transparent 45%),radial-gradient(circle at 40% 100%,var(--g3),transparent 50%),var(--bg);background-attachment:fixed}
 body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(var(--dot) 1.3px,transparent 1.4px);background-size:24px 24px;pointer-events:none}
-.sun{position:fixed;top:-90px;right:-90px;width:300px;height:300px;border-radius:50%;background:var(--pink);opacity:.14;pointer-events:none;animation:breathe 7s ease-in-out infinite}
+.sun{position:fixed;top:-90px;right:-90px;width:300px;height:300px;border-radius:50%;background:var(--pink);opacity:.08;pointer-events:none;animation:breathe 7s ease-in-out infinite}
 #petals{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.petal{position:absolute;top:-30px;background:linear-gradient(135deg,#ffc2d6,#ff8fb3);border-radius:150% 0 150% 0;opacity:.75;animation:fall linear infinite}
+.petal{position:absolute;top:-30px;background:linear-gradient(135deg,#bbf7d0,#4ade80);border-radius:150% 0 150% 0;opacity:.75;animation:fall linear infinite}
 @keyframes fall{to{transform:translate(var(--dx),110vh) rotate(540deg)}}
 @keyframes breathe{50%{transform:scale(1.07)}}
 @keyframes pop{from{transform:scale(.85);opacity:0}}
@@ -35,7 +35,7 @@ h1 small{display:block;font-size:.85rem;font-weight:400;color:var(--mute)}
 button{font:inherit;cursor:pointer;color:inherit}
 button:focus-visible,select:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
 .prog{height:12px;background:var(--surface);border:1.5px solid var(--line);border-radius:99px;overflow:hidden;margin:12px 0 4px}
-.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff8fb3,var(--pink));border-radius:99px;transition:width .6s}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#86efac,var(--pink));border-radius:99px;transition:width .6s}
 .plabel{font-size:.85rem;color:var(--mute);margin-bottom:6px}
 .tabs{display:flex;gap:6px;margin:10px 0 16px;overflow-x:auto;padding-bottom:4px}
 .tab{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:8px 14px;font-weight:700;white-space:nowrap;transition:transform .15s}
@@ -66,7 +66,7 @@ h2{font-size:1.1rem;margin:20px 0 10px;color:var(--ind)}
 .btn{background:var(--ind);color:var(--bg);border:0;border-radius:12px;padding:10px 16px;font-weight:700;margin:4px;transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
 .btn.alt{background:none;color:var(--ink);border:1.5px solid var(--line)}
-.btn.ok{background:var(--ok);color:#fff}.btn.no{background:var(--bad);color:#fff}
+.btn.ok{background:var(--ok);color:var(--bg)}.btn.no{background:var(--bad);color:var(--bg)}
 dialog{border:0;border-radius:22px;background:var(--surface);color:var(--ink);padding:24px;width:min(340px,92vw);text-align:center;backdrop-filter:blur(10px);animation:pop .25s}
 dialog::backdrop{background:rgba(10,15,30,.6)}
 .big{font-size:6rem;line-height:1.15;font-weight:700}
@@ -107,6 +107,9 @@ select{max-width:100%;font-size:16px}
 .wrap{padding:12px 10px calc(92px + env(safe-area-inset-bottom,0px))}
 h1 small{font-size:.75rem}
 .pill{font-size:.78rem;padding:3px 9px}
+.bar{gap:5px;margin-bottom:8px}
+.bar .chip{font-size:.7rem;padding:4px 9px;border-width:1px;line-height:1.3}
+.bar>.mute{flex-basis:100%;text-align:center;font-size:.72rem}
 .sun{width:200px;height:200px;top:-70px;right:-70px}
 .tabs{position:fixed;left:0;right:0;bottom:0;margin:0;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));background:var(--surface);backdrop-filter:blur(12px);border-top:1.5px solid var(--line);z-index:40;justify-content:space-between;gap:2px;overflow:visible}
 .tab{flex:1;min-width:0;padding:6px 2px;font-size:.62rem;border:0;border-radius:12px;background:none;display:flex;flex-direction:column;align-items:center;gap:1px}
@@ -125,6 +128,7 @@ h1 small{font-size:.75rem}
 .n th,.n td{padding:7px 6px;font-size:.85rem}.n .j{font-size:1.1rem}
 #toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 }
+.flash .back{gap:2px;text-align:center;padding:6px}
 .rates{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .rates .btn{margin:0;padding:8px 2px}
 .rb{display:inline-flex;flex-direction:column;align-items:center;line-height:1.25}
@@ -140,14 +144,14 @@ details summary{cursor:pointer}details p{margin:8px 0}
 <div class="sun"></div><div id="petals" aria-hidden="true"></div>
 <div class="wrap">
 <header>
- <h1><span class="logo">🌸</span> Belajar Kana<small>Hiragana, Katakana, dan angka Jepang</small></h1>
+ <h1><span class="logo">🍃</span> Belajar Kana<small>Hiragana, Katakana, dan angka Jepang</small></h1>
  <div class="stats"><span id="stats"></span><button class="pill" id="theme" aria-label="Ganti tema">🌓</button></div>
 </header>
 <div class="prog" role="progressbar" aria-label="Progres hafalan"><i id="pbar"></i></div>
 <div class="plabel" id="plabel"></div>
 <div class="tabs" id="tabs" role="tablist"></div>
 <div id="view"></div>
-<footer class="wm">🌸 Dibuat oleh <b>Hasanal Ridwan</b></footer>
+<footer class="wm">🍃 Dibuat oleh <b>Hasanal Ridwan</b></footer>
 </div>
 <dialog id="dlg"></dialog>
 <script>
@@ -171,12 +175,12 @@ function save(){try{localStorage.setItem("kana1",JSON.stringify({srs:S.srs,nt:S.
 var $=id=>document.getElementById(id),view=$("view"),dlg=$("dlg");
 function say(t){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="ja-JP";u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
 function toast(m){var o=$("toast");if(o)o.remove();var t=document.createElement("div");t.id="toast";t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),1800)}
-function burst(n){var e=["🌸","✨","⭐","🎉","🎌"];for(var i=0;i<(n||12);i++){var s=document.createElement("span");s.className="conf";s.textContent=rnd(e);s.style.setProperty("--x",(Math.random()*500-250)+"px");s.style.setProperty("--y",(Math.random()*-350-50)+"px");document.body.appendChild(s);setTimeout(()=>s.remove(),1000)}}
+function burst(n){var e=["🍃","✨","⭐","🎉","🌿"];for(var i=0;i<(n||12);i++){var s=document.createElement("span");s.className="conf";s.textContent=rnd(e);s.style.setProperty("--x",(Math.random()*500-250)+"px");s.style.setProperty("--y",(Math.random()*-350-50)+"px");document.body.appendChild(s);setTimeout(()=>s.remove(),1000)}}
 function addXP(n){var l=Math.floor(S.xp/100);S.xp+=n;save();head();if(Math.floor(S.xp/100)>l){toast("Naik ke level "+(l+2)+"! 🎊");burst(20)}}
 function head(){var done=Object.keys(S.m).length,tot=ALL.length*2;
  $("stats").innerHTML='<span class="pill">⭐ Lv '+(Math.floor(S.xp/100)+1)+'</span> <span class="pill">✨ '+S.xp+' XP</span> <span class="pill">🔥 '+S.days+' hari</span>';
  $("pbar").style.width=(done/tot*100)+"%";$("plabel").textContent="Hafal "+done+" dari "+tot+" huruf (Hiragana + Katakana)"}
-var T=[["hira","🌸","Hiragana"],["kata","🎴","Katakana"],["num","🔢","Angka"],["fc","🃏","Kartu"],["wr","✍️","Tulis"],["quiz","🎯","Kuis"]];
+var T=[["hira","🌱","Hiragana"],["kata","🎴","Katakana"],["num","🔢","Angka"],["fc","🃏","Kartu"],["wr","✍️","Tulis"],["quiz","🎯","Kuis"]];
 $("tabs").innerHTML=T.map(t=>'<button class="tab" role="tab" data-t="'+t[0]+'"><span>'+t[1]+'</span>'+t[2]+'</button>').join("");
 var mk=(c,isH)=>(isH?"h":"k")+c;
 function table(title,rows,isH){
@@ -195,20 +199,30 @@ function rTable(){var isH=S.tab=="hira";
 function rNum(){var h='<div class="bar"><button class="btn" id="sayall">🔊 Dengarkan 1 sampai 10</button><span class="mute">Klik baris untuk mendengar</span></div><div class="scroll"><table class="n"><thead><tr><th>Angka</th><th>Kanji</th><th>Hiragana</th><th>Romaji</th><th>Indonesia</th></tr></thead><tbody>';
  NUM.forEach(n=>h+='<tr data-say="'+n[2].split(" / ")[0]+'"><td class="num">'+n[0]+'</td><td class="j" lang="ja">'+n[1]+'</td><td class="j" lang="ja">'+n[2]+'</td><td class="ro">'+n[3]+'</td><td>'+n[4]+'</td></tr>');
  view.innerHTML=h+'</tbody></table></div>'}
-var fc={sc:"hira",cur:undefined,flip:false,step:0};
-var today=()=>Math.floor(Date.now()/864e5);
-function pairs(){var o=[],sc=fc.sc=="mix"?["hira","kata"]:[fc.sc];ALL.forEach(x=>sc.forEach(c=>o.push({c:x,sc:c,k:mk(x.h,c=="hira")})));return o}
-function sched(s,g){var n={i:s.i||0,e:s.e||2.5,r:s.r||0,l:s.l||0,d:today(),t:0};
- if(g==0){n.l++;n.e=Math.max(1.3,n.e-.2);n.i=0;n.r=0;n.t=fc.step+3}
- else{n.i=g==1?Math.max(1,Math.round((n.i||1)*1.2)):g==2?(n.r==0?1:n.r==1?3:Math.round(n.i*n.e)):(n.r==0?4:Math.round(Math.max(n.i,1)*n.e*1.3));
-  if(g==1)n.e=Math.max(1.3,n.e-.15);if(g==3)n.e+=.15;n.r++;n.d=today()+n.i}
- return n}
-var lab=(s,g)=>{if(g==0)return"segera";var i=sched(s||{},g).i;return i<30?i+" hari":Math.round(i/30)+" bln"};
+var BAB=["Semua","Bab 1 Perkenalan","Bab 2 Benda","Bab 3 Makanan","Bab 4 Keluarga"];
+var VOC=[
+[1,"わたし","私","watashi","saya"],[1,"あなた","","anata","kamu / Anda"],[1,"せんせい","先生","sensei","guru"],[1,"がくせい","学生","gakusei","pelajar / mahasiswa"],[1,"かいしゃいん","会社員","kaishain","karyawan perusahaan"],[1,"いしゃ","医者","isha","dokter"],[1,"エンジニア","","enjinia","insinyur"],[1,"だいがく","大学","daigaku","universitas"],[1,"びょういん","病院","byouin","rumah sakit"],[1,"だれ","誰","dare","siapa"],[1,"はじめまして","","hajimemashite","salam kenal"],[1,"よろしく","","yoroshiku","mohon bantuannya"],[1,"はい","","hai","ya"],[1,"いいえ","","iie","tidak"],[1,"にほん","日本","nihon","Jepang"],[1,"インドネシア","","indoneshia","Indonesia"],[1,"ともだち","友達","tomodachi","teman"],[1,"なまえ","名前","namae","nama"],[1,"ひと","人","hito","orang"],[1,"さん","","san","Tuan / Nyonya / Saudara (akhiran sopan)"],
+[2,"これ","","kore","ini (dekat saya)"],[2,"それ","","sore","itu (dekat lawan bicara)"],[2,"あれ","","are","itu (jauh dari keduanya)"],[2,"ほん","本","hon","buku"],[2,"ノート","","nooto","buku catatan"],[2,"えんぴつ","鉛筆","enpitsu","pensil"],[2,"かばん","","kaban","tas"],[2,"とけい","時計","tokei","jam"],[2,"くるま","車","kuruma","mobil"],[2,"つくえ","机","tsukue","meja"],[2,"いす","椅子","isu","kursi"],[2,"かさ","傘","kasa","payung"],[2,"じしょ","辞書","jisho","kamus"],[2,"けいたいでんわ","携帯電話","keitai denwa","ponsel"],[2,"テレビ","","terebi","televisi"],
+[3,"みず","水","mizu","air"],[3,"おちゃ","お茶","ocha","teh"],[3,"コーヒー","","koohii","kopi"],[3,"ごはん","","gohan","nasi / makan"],[3,"パン","","pan","roti"],[3,"たまご","卵","tamago","telur"],[3,"さかな","魚","sakana","ikan"],[3,"にく","肉","niku","daging"],[3,"やさい","野菜","yasai","sayur"],[3,"くだもの","果物","kudamono","buah"],[3,"りんご","","ringo","apel"],[3,"おいしい","","oishii","enak"],
+[4,"かぞく","家族","kazoku","keluarga"],[4,"ちち","父","chichi","ayah (saya)"],[4,"はは","母","haha","ibu (saya)"],[4,"あに","兄","ani","kakak laki-laki (saya)"],[4,"あね","姉","ane","kakak perempuan (saya)"],[4,"おとうと","弟","otouto","adik laki-laki (saya)"],[4,"いもうと","妹","imouto","adik perempuan (saya)"],[4,"おとうさん","お父さん","otousan","ayah (orang lain)"],[4,"おかあさん","お母さん","okaasan","ibu (orang lain)"]
+].map((v,i)=>({id:i,bab:v[0],h:v[1],kj:v[2],r:v[3],a:v[4]}));
+var fr=c=>c.sc=="kt"?'<span class="big" lang="ja" style="font-size:'+(c.c.h.length>6?'2.2rem':c.c.h.length>4?'3rem':c.c.h.length>2?'4rem':'5rem')+'">'+c.c.h+'</span>':'<span class="big" lang="ja">'+disp(c.c,c.sc)+'</span>';
+var bk=c=>(c.sc=="kt"?'<span class="rom" style="font-size:1.8rem">'+c.c.r+'</span><b>'+c.c.a+'</b>'+(c.c.kj?'<span lang="ja" style="font-size:1.6rem">'+c.c.kj+'</span>':''):'<span class="rom" style="font-size:3rem">'+rom(c.c.h,c.c.r,c.sc=="hira")+'</span>')+'<span class="mute">'+(S.srs[c.k]?'Kartu ulangan':'Kartu baru')+'</span>';
+var fc={sc:"hira",bab:0,cur:undefined,flip:false,step:0};
+var today=()=>Math.floor(Date.now()/6e4);
+function pairs(){if(fc.sc=="kt")return VOC.filter(v=>!fc.bab||v.bab==fc.bab).map(v=>({c:v,sc:"kt",k:"v"+v.id}));var o=[],sc=fc.sc=="mix"?["hira","kata"]:[fc.sc];ALL.forEach(x=>sc.forEach(c=>o.push({c:x,sc:c,k:mk(x.h,c=="hira")})));return o}
+function sched(s,g){var n={i:s.i||0,e:s.e||2.5,r:s.r||0,l:s.l||0,d:0,t:0};
+ if(g==0){n.l++;n.e=Math.max(1.3,n.e-.2);n.i=1;n.r=0;n.t=fc.step+2}
+ else{n.i=g==1?Math.max(5,Math.round((n.i||5)*1.2)):g==2?(n.r==0?10:n.r==1?30:Math.round(n.i*n.e)):(n.r==0?30:Math.round(Math.max(n.i,10)*n.e*1.3));
+  if(g==1)n.e=Math.max(1.3,n.e-.15);if(g==3)n.e+=.15;n.r++}
+ n.d=today()+n.i;return n}
+var fmt=i=>i<60?Math.max(1,Math.round(i))+" mnt":i<1440?Math.round(i/60)+" jam":Math.round(i/1440)+" hari";
+var lab=(s,g)=>fmt(sched(s||{},g).i);
 function counts(){var t=today(),p=pairs(),due=0,nw=0;p.forEach(x=>{var s=S.srs[x.k];if(s){if(s.d<=t)due++}else nw++});
- var used=S.nt.d==t?S.nt.n:0;return{due:due,nw:Math.min(nw,Math.max(0,S.nl-used)),all:p.length}}
+ var used=S.nt.d==t?S.nt.n:0;return{due:due,nw:nw,all:p.length}}
 function nextFC(){var t=today(),p=pairs(),dl=p.filter(x=>S.srs[x.k]&&S.srs[x.k].d<=t),rd=dl.filter(x=>(S.srs[x.k].t||0)<=fc.step),cur=fc.cur,pick=null,used=S.nt.d==t?S.nt.n:0,nw=p.filter(x=>!S.srs[x.k]);
  if(rd.length){rd.sort(()=>Math.random()-.5);rd.sort((a,b)=>S.srs[a.k].d-S.srs[b.k].d);pick=rd.find(x=>!cur||x.k!=cur.k)||rd[0]}
- else if(nw.length&&used<S.nl)pick=rnd(nw);
+ else if(nw.length)pick=rnd(nw);
  else if(dl.length){dl.sort(()=>Math.random()-.5);pick=dl.find(x=>!cur||x.k!=cur.k)||dl[0]}
  fc.cur=pick;fc.flip=false}
 function rate4(){var s=S.srs[fc.cur.k];return '<div class="rates">'+[["0","Lagi","btn no"],["1","Sulit","btn alt"],["2","Bagus","btn"],["3","Mudah","btn ok"]].map(a=>'<button class="'+a[2]+' rb" data-fg="'+a[0]+'">'+a[1]+'<small>'+lab(s,+a[0])+'</small></button>').join("")+'</div>'}
@@ -216,20 +230,20 @@ function fshow(){if(!fc.cur||fc.flip)return;fc.flip=true;$("fl").classList.add("
 function rate(g){var c=fc.cur;if(!c||!fc.flip)return;var s=S.srs[c.k],t=today();
  if(!s)S.nt=S.nt.d==t?{d:t,n:S.nt.n+1}:{d:t,n:1};
  var n=sched(s||{},g);S.srs[c.k]=n;fc.step++;
- if(g==0)delete S.m[c.k];else if(n.i>=7)S.m[c.k]=1;
+ if(c.sc=="kt"){}else if(g==0)delete S.m[c.k];else if(n.i>=60)S.m[c.k]=1;
  if(g>=2)addXP(g==3?5:3);else save();
  head();nextFC();render()}
 function rFC(){if(fc.cur===undefined)nextFC();var c=fc.cur,n=counts();
- var h='<div class="bar">'+[["hira","Hiragana"],["kata","Katakana"],["mix","Campur"]].map(a=>'<button class="chip" data-fs="'+a[0]+'" aria-pressed="'+(fc.sc==a[0])+'">'+a[1]+'</button>').join("")+'</div><div class="card"><div class="sc"><span style="color:var(--ind)">Baru '+n.nw+'</span><span style="color:var(--bad)">Ulang '+n.due+'</span><span class="mute">Total '+n.all+'</span></div>';
+ var h='<div class="bar">'+[["hira","Hiragana"],["kata","Katakana"],["mix","Campur"],["kt","📚 Kotoba"]].map(a=>'<button class="chip" data-fs="'+a[0]+'" aria-pressed="'+(fc.sc==a[0])+'">'+a[1]+'</button>').join("")+'</div>'+(fc.sc=="kt"?'<div class="bar">'+BAB.map((b,i)=>'<button class="chip" data-fb="'+i+'" aria-pressed="'+(fc.bab==i)+'">'+b+'</button>').join("")+'</div>':'')+'<div class="card"><div class="sc"><span style="color:var(--ind)">Baru '+n.nw+'</span><span style="color:var(--bad)">Ulang '+n.due+'</span><span class="mute">Total '+n.all+'</span></div>';
  if(!c){var ds=pairs().map(x=>S.srs[x.k]).filter(Boolean).map(x=>x.d),dd=ds.length?Math.min.apply(null,ds)-today():0;
-  h+='<div class="qk">🎉</div><p><b>Selesai untuk hari ini!</b></p><p class="mute">Kartu berikutnya jatuh tempo '+(dd<=0?'sebentar lagi':dd+' hari lagi')+'. Kembali besok supaya ingatan tetap kuat dan streak terjaga. Mau lanjut? Naikkan batas kartu baru di bawah.</p>'}
- else h+='<div class="flash'+(fc.flip?' flipped':'')+'" id="fl"><div class="front"><span class="big" lang="ja">'+disp(c.c,c.sc)+'</span></div><div class="back"><span class="rom" style="font-size:3rem">'+rom(c.c.h,c.c.r,c.sc=="hira")+'</span><span class="mute">'+(S.srs[c.k]?'Kartu ulangan':'Kartu baru')+'</span></div></div><div id="fa">'+(fc.flip?rate4():'<button class="btn" id="fshow">Tampilkan jawaban</button>')+'</div><div class="mute">Tebak romajinya dulu, baru tampilkan jawaban. Pintasan: Spasi, lalu 1 sampai 4.</div>';
- h+='</div><div class="bar" style="margin-top:12px"><label class="mute">Kartu baru per hari <select id="nl">'+[5,10,20,46].map(v=>'<option'+(S.nl==v?' selected':'')+'>'+v+'</option>').join("")+'</select></label></div><details class="mute card" style="margin-top:8px;text-align:left"><summary><b>Cara kerja metode Anki (spaced repetition)</b></summary><p>Huruf diulang tepat sebelum kamu lupa. Setelah menjawab, pilih seberapa mudah ingatannya:</p><p><b>Lagi</b>: lupa, kartu muncul lagi beberapa kartu kemudian. <b>Sulit</b>: ingat dengan susah payah, jeda naik sedikit. <b>Bagus</b>: ingat, jeda naik jelas (1 hari, 3 hari, lalu makin panjang). <b>Mudah</b>: langsung ingat, jeda naik paling jauh.</p><p>Huruf yang jedanya sudah 7 hari atau lebih otomatis dianggap hafal dan dihitung di bar progres. Belajar sedikit tiap hari lebih efektif daripada sekali banyak.</p></details>';
+  h+='<div class="qk">🎉</div><p><b>Semua kartu sedang istirahat!</b></p><p class="mute">Kartu berikutnya jatuh tempo '+(dd<=0?'sebentar lagi':fmt(dd)+' lagi')+'. Mau tidak menunggu? Belajar lebih awal juga boleh.</p><button class="btn" id="fearly">⚡ Belajar sekarang</button>'}
+ else h+='<div class="flash'+(fc.flip?' flipped':'')+'" id="fl"><div class="front">'+fr(c)+'</div><div class="back">'+bk(c)+'</div></div><div id="fa">'+(fc.flip?rate4():'<button class="btn" id="fshow">Tampilkan jawaban</button>')+'</div><div class="mute">'+(fc.sc=="kt"?"Tebak arti dan cara bacanya dulu":"Tebak romajinya dulu")+', baru tampilkan jawaban. Pintasan: Spasi, lalu 1 sampai 4.</div>';
+ h+='</div><details class="mute card" style="margin-top:8px;text-align:left"><summary><b>Cara kerja metode Anki (spaced repetition)</b></summary><p>Huruf diulang tepat sebelum kamu lupa. Setelah menjawab, pilih seberapa mudah ingatannya:</p><p><b>Lagi</b>: lupa, kartu muncul lagi sekitar 1 menit kemudian. <b>Sulit</b>: ingat dengan susah payah, jeda naik sedikit. <b>Bagus</b>: ingat, jeda naik jelas (10 menit, 30 menit, lalu makin panjang jadi jam dan hari). <b>Mudah</b>: langsung ingat, jeda naik paling jauh.</p><p>Huruf yang jedanya sudah 1 jam atau lebih otomatis dianggap hafal dan dihitung di bar progres. Belajar sedikit tiap hari lebih efektif daripada sekali banyak.</p></details>';
  view.innerHTML=h}
 var wr={sc:"hira",c:ALL[0],guide:true};
 function rWrite(){var c=wr.c;
  var h='<div class="bar">'+[["hira","Hiragana"],["kata","Katakana"]].map(a=>'<button class="chip" data-ws="'+a[0]+'" aria-pressed="'+(wr.sc==a[0])+'">'+a[1]+'</button>').join("")+'<select id="pick" aria-label="Pilih huruf">'+ALL.map(x=>'<option value="'+x.h+'"'+(x.h==c.h?' selected':'')+'>'+disp(x,wr.sc)+' '+rom(x.h,x.r,wr.sc=="hira")+'</option>').join("")+'</select></div>';
- h+='<div class="pad'+(wr.guide?'':' noguide')+'" id="pad"><div class="guide" lang="ja">'+disp(c,wr.sc)+'</div><canvas id="cv" width="320" height="320"></canvas></div><div class="bar"><span class="rom">'+rom(c.h,c.r,wr.sc=="hira")+'</span></div><div class="bar"><button class="btn" id="wsay">🔊 Dengar</button><button class="btn alt" id="wclr">🧽 Hapus</button><button class="btn alt" id="wg">👁️ Panduan</button><button class="btn alt" id="wrnd">🎲 Acak</button><button class="btn ok" id="wok">✅ Sudah bisa</button></div><p class="mute" style="text-align:center">Tulis dengan jari atau mouse mengikuti bentuk huruf. Mulai dari panduan, lalu coba tanpa panduan.</p>';
+ h+='<div class="pad'+(wr.guide?'':' noguide')+'" id="pad"><div class="guide" lang="ja" style="font-size:'+(disp(c,wr.sc).length>1?'min(7.5rem,36vw)':'min(11rem,52vw)')+'">'+disp(c,wr.sc)+'</div><canvas id="cv" width="320" height="320"></canvas></div><div class="bar"><span class="rom">'+rom(c.h,c.r,wr.sc=="hira")+'</span></div><div class="bar"><button class="btn" id="wsay">🔊 Dengar</button><button class="btn alt" id="wclr">🧽 Hapus</button><button class="btn alt" id="wg">👁️ Panduan</button><button class="btn alt" id="wrnd">🎲 Acak</button><button class="btn ok" id="wok">✅ Sudah bisa</button></div><p class="mute" style="text-align:center">Tulis dengan jari atau mouse mengikuti bentuk huruf. Mulai dari panduan, lalu coba tanpa panduan.</p>';
  view.innerHTML=h;var cv=$("cv"),x=cv.getContext("2d"),dr=false;
  x.lineWidth=11;x.lineCap=x.lineJoin="round";x.strokeStyle=getComputedStyle(document.body).getPropertyValue("--ink");
  var pt=e=>{var r=cv.getBoundingClientRect();return[(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height]};
@@ -269,7 +283,9 @@ view.onclick=e=>{var t=e.target.closest("button,tr[data-say],.flash");if(!t)retu
  else if(t.id=="tdak"){S.dak=!S.dak;render()}else if(t.id=="tyoon"){S.yoon=!S.yoon;render()}
  else if(d.say)say(d.say);else if(t.id=="sayall")say("いち、に、さん、よん、ご、ろく、なな、はち、きゅう、じゅう");
  else if(t.id=="fl"||t.id=="fshow")fshow();
+ else if(t.id=="fearly"){var ps=pairs().filter(x=>S.srs[x.k]).sort((a,b)=>S.srs[a.k].d-S.srs[b.k].d);fc.cur=ps[0]||undefined;fc.flip=false;render()}
  else if(d.fg!==undefined)rate(+d.fg);
+ else if(d.fb!==undefined){fc.bab=+d.fb;fc.cur=undefined;render()}
  else if(d.fs){fc.sc=d.fs;fc.cur=undefined;render()}
  else if(d.ws){wr.sc=d.ws;render()}
  else if(t.id=="wsay")say(wr.c.h);else if(t.id=="wclr")render();else if(t.id=="wg"){wr.guide=!wr.guide;$("pad").classList.toggle("noguide",!wr.guide)}
@@ -281,8 +297,9 @@ view.onclick=e=>{var t=e.target.closest("button,tr[data-say],.flash");if(!t)retu
 view.onchange=e=>{if(e.target.id=="nl"){S.nl=+e.target.value;save();fc.cur=undefined;render()}if(e.target.id=="pick"){wr.c=ALL.find(x=>x.h==e.target.value);render()}};
 document.addEventListener("keydown",e=>{if(S.tab!="fc"||dlg.open||!fc.cur||e.target.tagName=="SELECT")return;if((e.key==" "||e.key=="Enter")&&!fc.flip){e.preventDefault();fshow()}else if(fc.flip&&"1234".indexOf(e.key)>=0&&e.key)rate(+e.key-1)});
 dlg.onclick=e=>{if(e.target===dlg)dlg.close()};
-$("theme").onclick=()=>{var r=document.documentElement,dk=r.dataset.theme?r.dataset.theme=="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=dk?"light":"dark";render()};
+$("theme").onclick=()=>{var r=document.documentElement,dk=r.dataset.theme=="dark";r.dataset.theme=dk?"light":"dark";render()};
 for(var i=0;i<14;i++){var p=document.createElement("div"),s=8+Math.random()*10;p.className="petal";p.style.cssText="left:"+Math.random()*100+"%;width:"+s+"px;height:"+s+"px;animation-duration:"+(9+Math.random()*10)+"s;animation-delay:-"+Math.random()*15+"s;--dx:"+(Math.random()*160-80)+"px";$("petals").appendChild(p)}
+setInterval(()=>{if(S.tab=="fc"&&fc.cur===null&&!dlg.open){fc.cur=undefined;render()}},10000);
 head();render();
 </script>
 </body>
