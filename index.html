@@ -9,7 +9,7 @@
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 --bg:#ffffff;--g1:#f3f9f5;--g2:#ffffff;--g3:#ffffff;--surface:rgba(255,255,255,.95);--ink:#12281b;--mute:#587064;--line:#dbe8df;--ind:#166534;--pink:#16a34a;--ok:#15803d;--bad:#c92a2a;--dot:rgba(22,101,52,.035);color-scheme:light}
 @media (prefers-color-scheme:none){:root:not([data-theme="light"]){--bg:#0b1a12;--g1:#12381f;--g2:#0f2e2b;--g3:#1d2e12;--surface:rgba(17,38,27,.88);--ink:#e6f4ea;--mute:#9bb8a6;--line:#25503a;--ind:#6ee7a0;--pink:#4ade80;--ok:#4ade80;--bad:#ff7b7b;--dot:rgba(255,255,255,.06);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0b1a12;--g1:#12381f;--g2:#0f2e2b;--g3:#1d2e12;--surface:rgba(17,38,27,.88);--ink:#e6f4ea;--mute:#9bb8a6;--line:#25503a;--ind:#6ee7a0;--pink:#4ade80;--ok:#4ade80;--bad:#ff7b7b;--dot:rgba(255,255,255,.06);color-scheme:dark}
+:root[data-mode="dark"]{--bg:#0b1a12;--g1:#12381f;--g2:#0f2e2b;--g3:#1d2e12;--surface:rgba(17,38,27,.88);--ink:#e6f4ea;--mute:#9bb8a6;--line:#25503a;--ind:#6ee7a0;--pink:#4ade80;--ok:#4ade80;--bad:#ff7b7b;--dot:rgba(255,255,255,.06);color-scheme:dark}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;color:var(--ink);font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5;min-height:100vh;
@@ -210,6 +210,10 @@ h1{font-family:Montserrat,Poppins,sans-serif;font-weight:800;letter-spacing:-.01
 .pc.ok .pn{display:none}
 .tc{border-left:4px solid var(--pink);border-radius:12px}
 @media (max-width:640px){.hero{padding:26px 18px 90px;min-height:0}.duo{grid-template-columns:1fr}.ft{width:46px;height:46px;font-size:1.4rem}.f1{right:100px;top:14px}.f2{right:48px;top:44px}.f3{right:10px;top:12px}.f4{display:none}.fuji{width:75%}.tk{font-size:3rem}}
+.tk{display:flex;align-items:baseline;justify-content:center;gap:12px}.tk span{margin-left:0}
+@media (max-width:640px){.ft{display:none!important}.hero{padding:26px 18px 100px}.fuji{width:85%}.hero h2{font-size:1.45rem}.hero p{font-size:.9rem}.sn{font-size:2.4rem}.today .btn{width:100%}}
+.hc{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px}.hc span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:3px 12px;font-size:.78rem;font-weight:600}
+@media (max-width:640px){.ft{display:flex!important;width:42px;height:42px;font-size:1.25rem;top:auto!important;bottom:20px}.f1{right:18px}.f2{right:72px}.f3{right:126px}.f4{display:none!important}.hero h2{font-size:1.9rem;margin-bottom:8px}.hero p{margin-bottom:14px}.hero .btn{width:100%;margin-right:0}.hero{padding:28px 20px 112px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}#petals{display:none}}
 </style>
 </head>
@@ -246,7 +250,13 @@ try{var d=JSON.parse(localStorage.getItem("kana1")||"{}");for(var k in d)S[k]=d[
 (function(){var t=new Date().toDateString();if(S.last!=t){S.days=S.last==new Date(Date.now()-864e5).toDateString()?S.days+1:1;S.last=t;save()}})();
 function save(){try{localStorage.setItem("kana1",JSON.stringify({srs:S.srs,nt:S.nt,nl:S.nl,m:S.m,xp:S.xp,days:S.days,last:S.last,weak:S.weak}))}catch(e){}}
 var $=id=>document.getElementById(id),view=$("view"),dlg=$("dlg");
-function say(t){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="ja-JP";u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
+var JV=null;
+function pickV(){try{JV=speechSynthesis.getVoices().find(x=>/^ja/i.test(x.lang))||null}catch(e){}}
+try{pickV();speechSynthesis.onvoiceschanged=pickV}catch(e){}
+function say(t){try{var ss=window.speechSynthesis;if(!ss||!window.SpeechSynthesisUtterance){toast("Browser ini belum mendukung suara");return}
+ pickV();var u=new SpeechSynthesisUtterance(t);u.lang="ja-JP";u.rate=.8;if(JV)u.voice=JV;
+ else if(ss.getVoices().length)toast("Suara Jepang belum terpasang. Pasang di pengaturan Text-to-speech perangkatmu.");
+ ss.cancel();ss.resume();setTimeout(()=>ss.speak(u),80)}catch(e){}}
 function toast(m){var o=$("toast");if(o)o.remove();var t=document.createElement("div");t.id="toast";t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),1800)}
 function burst(n){var e=["🍃","✨","⭐","🎉","🌿"];for(var i=0;i<(n||12);i++){var s=document.createElement("span");s.className="conf";s.textContent=rnd(e);s.style.setProperty("--x",(Math.random()*500-250)+"px");s.style.setProperty("--y",(Math.random()*-350-50)+"px");document.body.appendChild(s);setTimeout(()=>s.remove(),1000)}}
 function addXP(n){var l=Math.floor(S.xp/100);S.xp+=n;save();head();if(Math.floor(S.xp/100)>l){toast("Naik ke level "+(l+2)+"! 🎊");burst(20)}}
@@ -275,7 +285,7 @@ function rHome(){var K=Object.keys,hh=K(S.m).filter(k=>k[0]=="h").length,kk=K(S.
  var ring=(a,b)=>'<svg class="ring" viewBox="0 0 84 84"><circle cx="42" cy="42" r="34" class="rt"/><circle cx="42" cy="42" r="34" class="rf" style="stroke-dashoffset:'+(213.6*(1-a/b)).toFixed(1)+'"/><text x="42" y="47" text-anchor="middle">'+Math.round(a/b*100)+'%</text></svg>';
  var box=(nm,a,b)=>'<div class="sb rb2">'+ring(a,b)+'<div><div class="lbl">'+nm+'</div><b>'+a+'</b><span class="mute"> / '+b+'</span></div></div>';
  var td=ALL[Math.floor(Date.now()/864e5)%ALL.length],xp=S.xp%100;
- var h='<section class="hero"><svg class="fuji" viewBox="0 0 320 130" aria-hidden="true"><circle cx="238" cy="36" r="20" fill="#fff" opacity=".85"/><path d="M10 130 150 28 290 130z" fill="#fff" opacity=".16"/><path d="M150 28 122 52l14-4 14 10 14-10 14 4z" fill="#fff" opacity=".9"/></svg><div class="ft f1" lang="ja">あ</div><div class="ft f2" lang="ja">ア</div><div class="ft f3" lang="ja">ん</div><div class="ft f4" lang="ja">カ</div><div class="hbody"><div class="eyebrow">日本語 · Belajar bahasa Jepang</div><h2>Kuasai Hiragana, Katakana, dan kosakata dasar</h2><p>'+gr+'. Latih huruf dan kata dengan pengulangan berjarak, tulis langsung di layar, lalu ukur kemajuanmu lewat kuis. Cukup 10 sampai 15 menit sehari.</p><div class="cta"><button class="btn" data-go="hira">'+(hh?'Lanjut belajar tabel huruf':'Mulai dari tabel Hiragana')+'</button></div></div></section>';
+ var h='<section class="hero"><svg class="fuji" viewBox="0 0 320 130" aria-hidden="true"><circle cx="238" cy="36" r="20" fill="#fff" opacity=".85"/><path d="M10 130 150 28 290 130z" fill="#fff" opacity=".16"/><path d="M150 28 122 52l14-4 14 10 14-10 14 4z" fill="#fff" opacity=".9"/></svg><div class="ft f1" lang="ja">あ</div><div class="ft f2" lang="ja">ア</div><div class="ft f3" lang="ja">ん</div><div class="ft f4" lang="ja">カ</div><div class="hbody"><div class="eyebrow">'+gr+' · 日本語</div><h2>Belajar Kana dari Nol</h2><p>Hiragana, Katakana, dan kotoba dasar. Cukup 10 menit sehari.</p><div class="hc"><span>Hiragana</span><span>Katakana</span><span>Kotoba</span><span>Kartu Anki</span></div><div class="cta"><button class="btn" data-go="hira">'+(hh?'Lanjut belajar tabel huruf':'Mulai dari tabel Hiragana')+'</button></div></div></section>';
  h+='<div class="duo"><div class="sb today"><div class="lbl">Huruf hari ini</div><div class="tk" lang="ja">'+td.h+'<span>'+td.k+'</span></div><div class="rom">'+rom(td.h,td.r,true)+'</div><button class="btn alt" data-say="'+td.h+'">Dengarkan</button></div><div class="sb streak"><div class="lbl">Konsistensi</div><div class="sn">'+S.days+'<span> hari berturut-turut</span></div><div class="prog" style="height:8px;margin:14px 0 6px"><i style="width:'+xp+'%"></i></div><div class="mute" style="font-size:.85rem">Level '+(Math.floor(S.xp/100)+1)+' · '+S.xp+' XP · '+(100-xp)+' XP lagi ke level berikutnya</div></div></div>';
  h+='<div class="sec">Progres kamu</div><div class="sg">'+box("Hiragana",hh,n)+box("Katakana",kk,n)+box("Kotoba",vv,vn)+'</div>';
  var st=[["hira","Kenali Hiragana","46 huruf dasar lengkap dengan bunyi dan romaji.",hh>=n],["kata","Lanjut ke Katakana","Huruf untuk kata serapan seperti コーヒー.",kk>=n],["num","Hafalkan angka","0 sampai 10.000 dengan kanji dan kana.",false],["fc","Kartu Anki",(due?due+" kartu siap diulang. ":"")+"Ulang huruf dan kotoba tepat sebelum lupa.",false],["wr","Latihan menulis","Tulis huruf dengan jari mengikuti panduan.",false],["quiz","Uji dengan kuis","Huruf yang sering salah muncul lebih sering.",false]];
@@ -384,7 +394,7 @@ view.onclick=e=>{var t=e.target.closest("button,tr[data-say],.flash");if(!t)retu
 view.onchange=e=>{if(e.target.id=="nl"){S.nl=+e.target.value;save();fc.cur=undefined;render()}if(e.target.id=="pick"){wr.c=ALL.find(x=>x.h==e.target.value);render()}};
 document.addEventListener("keydown",e=>{if(S.tab!="fc"||dlg.open||!fc.cur||e.target.tagName=="SELECT")return;if((e.key==" "||e.key=="Enter")&&!fc.flip){e.preventDefault();fshow()}else if(fc.flip&&"1234".indexOf(e.key)>=0&&e.key)rate(+e.key-1)});
 dlg.onclick=e=>{if(e.target===dlg)dlg.close()};
-$("theme").onclick=()=>{var r=document.documentElement,dk=r.dataset.theme=="dark";r.dataset.theme=dk?"light":"dark";render()};
+$("theme").onclick=()=>{var r=document.documentElement,dk=r.dataset.mode=="dark";r.dataset.mode=dk?"light":"dark";render()};
 for(var i=0;i<8;i++){var p=document.createElement("div"),s=8+Math.random()*10;p.className="petal";p.style.cssText="left:"+Math.random()*100+"%;width:"+s+"px;height:"+s+"px;animation-duration:"+(9+Math.random()*10)+"s;animation-delay:-"+Math.random()*15+"s;--dx:"+(Math.random()*160-80)+"px";$("petals").appendChild(p)}
 setInterval(()=>{if(S.tab=="fc"&&fc.cur===null&&!dlg.open){fc.cur=undefined;render()}},10000);
 head();render();
